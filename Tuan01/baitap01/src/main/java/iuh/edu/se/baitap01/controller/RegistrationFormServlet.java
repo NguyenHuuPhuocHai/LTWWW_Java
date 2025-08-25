@@ -11,35 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/register")
 public class RegistrationFormServlet extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        response.setContentType("text/html;charset=UTF-8");
-
-        try (PrintWriter out = response.getWriter()) {
-            // Lấy dữ liệu từ form
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String facebook = request.getParameter("facebook");
-            String shortBio = request.getParameter("shortBio");
-
-            // In ra HTML kết quả
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Registration Result</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h2>Thông tin bạn đã nhập:</h2>");
-            out.println("<p><b>Name:</b> " + name + "</p>");
-            out.println("<p><b>Email:</b> " + email + "</p>");
-            out.println("<p><b>Facebook:</b> " + facebook + "</p>");
-            out.println("<p><b>Short Bio:</b> " + shortBio + "</p>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,5 +21,52 @@ public class RegistrationFormServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+    }
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
+        // Lấy dữ liệu từ form
+        String firstName = request.getParameter("first");
+        String lastName = request.getParameter("last");
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password"); // Không hiển thị
+        String facebook = request.getParameter("facebook");
+        String gender = request.getParameter("gender");
+        String shortbio = request.getParameter("shortbio");
+
+        // CheckBox: hobbies
+        String[] hobbies = request.getParameterValues("hobbies");
+
+        // Tạo HTML kết quả
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head><title>Registration Result</title></head>");
+        out.println("<body>");
+        out.println("<h2>Registration Result</h2>");
+        out.println("<p>First Name: " + firstName + "</p>");
+        out.println("<p>Last Name: " + lastName + "</p>");
+        out.println("<p>Username: " + username + "</p>");
+        out.println("<p>Email: " + email + "</p>");
+        out.println("<p>Facebook: " + facebook + "</p>"); // Hiển thị Facebook
+        out.println("<p>Gender: " + gender + "</p>");
+
+        out.print("<p>Hobbies: ");
+        if (hobbies != null) {
+            for (String h : hobbies) {
+                out.print(h + " ");
+            }
+        }
+        out.println("</p>");
+
+        out.println("<p>Short Bio: " + shortbio + "</p>");
+        out.println("</body>");
+        out.println("</html>");
+
+        out.close();
     }
 }

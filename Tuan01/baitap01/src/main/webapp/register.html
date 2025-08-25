@@ -3,16 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            width: 500px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select, textarea {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .checkbox-group input {
+            width: auto;
+        }
+    </style>
 </head>
 <body>
 <h2>Registration Form</h2>
-<form action="register" method="post">
-    Name: <input type="text" name="name"><br><br>
-    Email: <input type="email" name="email"><br><br>
-    Facebook: <input type="text" name="facebook"><br><br>
-    Short Bio:<br>
-    <textarea name="shortBio" rows="5" cols="30"></textarea><br><br>
-    <input type="submit" value="Register">
+<form method="post" action="register" name="registrationForm">
+    <table>
+        <tr>
+            <td><label for="first">First Name:</label></td>
+            <td><input type="text" id="first" name="first"></td>
+        </tr>
+        <tr>
+            <td><label for="last">Last Name:</label></td>
+            <td><input type="text" id="last" name="last"></td>
+        </tr>
+        <tr>
+            <td><label for="username">Username:</label></td>
+            <td><input type="text" id="username" name="username"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" id="email" name="email"></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="password" id="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><label for="facebook">Facebook:</label></td>
+            <td><input type="text" id="facebook" name="facebook"></td>
+        </tr>
+        <tr>
+            <td>Hobbies:</td>
+            <td class="checkbox-group">
+                <input type="checkbox" name="hobbies" value="Reading"> Reading<br>
+                <input type="checkbox" name="hobbies" value="Traveling"> Traveling<br>
+                <input type="checkbox" name="hobbies" value="Gaming"> Gaming
+            </td>
+        </tr>
+        <tr>
+            <td><label for="gender">Gender:</label></td>
+            <td>
+                <select id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="shortbio">Short Bio:</label></td>
+            <td><textarea id="shortbio" name="shortbio" rows="4" cols="40"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center;">
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
