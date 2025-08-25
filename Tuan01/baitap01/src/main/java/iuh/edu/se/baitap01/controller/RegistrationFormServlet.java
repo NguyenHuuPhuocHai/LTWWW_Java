@@ -29,20 +29,17 @@ public class RegistrationFormServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        // Lấy dữ liệu từ form
         String firstName = request.getParameter("first");
         String lastName = request.getParameter("last");
         String username = request.getParameter("username");
         String email = request.getParameter("email");
-        String password = request.getParameter("password"); // Không hiển thị
+        String password = request.getParameter("password");
         String facebook = request.getParameter("facebook");
         String gender = request.getParameter("gender");
         String shortbio = request.getParameter("shortbio");
 
-        // CheckBox: hobbies
         String[] hobbies = request.getParameterValues("hobbies");
 
-        // Tạo HTML kết quả
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head><title>Registration Result</title></head>");
@@ -52,7 +49,7 @@ public class RegistrationFormServlet extends HttpServlet {
         out.println("<p>Last Name: " + lastName + "</p>");
         out.println("<p>Username: " + username + "</p>");
         out.println("<p>Email: " + email + "</p>");
-        out.println("<p>Facebook: " + facebook + "</p>"); // Hiển thị Facebook
+        out.println("<p>Facebook: " + facebook + "</p>");
         out.println("<p>Gender: " + gender + "</p>");
 
         out.print("<p>Hobbies: ");
