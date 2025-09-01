@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>iuh.edu.se.baitap01.controller.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- Logging Filter -->
+    <filter>
+        <filter-name>LoggingFilter</filter-name>
+        <filter-class>iuh.edu.se.baitap01.filter.LoggingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoggingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Authentication Filter -->
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>iuh.edu.se.baitap01.filter.AuthenticationFilter</filter-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+
+    <!-- ImageFilter -->
+    <filter>
+        <filter-name>ImageFilter</filter-name>
+        <filter-class>iuh.edu.se.baitap01.filter.ImageFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ImageFilter</filter-name>
+        <url-pattern>*.jpg</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>ImageFilter</filter-name>
+        <url-pattern>*.jpeg</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>ImageFilter</filter-name>
+        <url-pattern>*.png</url-pattern>
+    </filter-mapping>
+
+    <!-- MIME Type Filter -->
+    <filter>
+        <filter-name>MimeTypeFilter</filter-name>
+        <filter-class>iuh.edu.se.baitap01.filter.MimeTypeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MimeTypeFilter</filter-name>
+        <url-pattern>/hello-servlet</url-pattern>
+    </filter-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
