@@ -18,6 +18,11 @@ public class RegisterServlet extends HttpServlet {
     private List<User> users = new ArrayList<>();
 
     @Override
+    public void init() throws ServletException {
+        getServletContext().setAttribute("users", new ArrayList<User>());
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstName = req.getParameter("txtFirstName");
         String lastName = req.getParameter("txtLastName");
@@ -27,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
         String day = req.getParameter("day");
         String month = req.getParameter("month");
         String year = req.getParameter("year");
-        String birthday = day + " " + month + " " + year;
+        String birthday = day + "/" + month + "/" + year;
         String gender = req.getParameter("gender");
 
         if (!email.equals(reEmail)) {
@@ -40,6 +45,6 @@ public class RegisterServlet extends HttpServlet {
         users.add(user);
 
         req.setAttribute("users", users);
-        req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
+        req.getRequestDispatcher("views/listUsers.jsp").forward(req, resp);
     }
 }
