@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS QUANLYDANHMUC CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE QUANLYDANHMUC;
+
+-- Bảng DANHMUC
+CREATE TABLE DANHMUC (
+  MADM INT AUTO_INCREMENT PRIMARY KEY,
+  TENDANHMUC VARCHAR(100) NOT NULL,
+  NGUOIQUANLY VARCHAR(100),
+  GHICHU VARCHAR(255)
+);
+
+-- Bảng TINTUC
+CREATE TABLE TINTUC (
+  MATT INT AUTO_INCREMENT PRIMARY KEY,
+  TIEUDE VARCHAR(150) NOT NULL,
+  NOIDUNGTT VARCHAR(255) NOT NULL,
+  LIENKET VARCHAR(255) NOT NULL,
+  MADM INT NOT NULL,
+  FOREIGN KEY (MADM) REFERENCES DANHMUC(MADM) ON DELETE CASCADE
+);
+
+INSERT INTO DANHMUC (TENDANHMUC, NGUOIQUANLY, GHICHU)
+VALUES
+('Công nghệ', 'Nguyễn A', 'Danh mục công nghệ'),
+('Thời sự', 'Trần B', 'Tin tức thời sự'),
+('Thể thao', 'Lê C', 'Mục thể thao');
+
+
+INSERT INTO TINTUC (TIEUDE, NOIDUNGTT, LIENKET, MADM)
+VALUES
+('Ra mắt sản phẩm X', 'Sản phẩm X có nhiều tính năng mới', 'http://example.com/product-x', 1),
+('Tin nóng hôm nay', 'Một sự kiện quan trọng vừa diễn ra', 'http://example.com/news1', 2);
+
