@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean cho lớp học -->
+    <bean id="lopHoc" class="iuh.fit.baitap01.model.Lop">
+        <property name="maLop" value="DHKTPM17A"/>
+        <property name="tenLop" value="Kỹ Thuật Phần Mềm 17A"/>
+    </bean>
+
+    <!-- Bean cho sinh viên, có inject Lop -->
+    <bean id="sinhVien" class="iuh.fit.baitap01.model.SinhVien">
+        <property name="maSV" value="21018551"/>
+        <property name="hoTen" value="Nguyễn Hữu Phước Hải"/>
+        <property name="lop" ref="lopHoc"/>
+    </bean>
+
+</beans>
