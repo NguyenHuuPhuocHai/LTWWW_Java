@@ -1,0 +1,33 @@
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+.container { background-color: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); padding: 30px; margin: 40px 0; width: 100%; max-width: 900px; }
+h2 { text-align: center; font-size: 32px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+hr { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+
+/* --- Table Styles (Employee List) --- */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #f8f8f8; font-weight: 600; color: #333; }
+.action a { margin-right: 15px; text-decoration: none; color: #007bff; }
+.action a:hover { text-decoration: underline; }
+
+.header-controls { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px; }
+.search-box { display: flex; margin-right: 10px; }
+.search-box input { padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px 0 0 4px; outline: none; }
+.search-box button { background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 0 4px 4px 0; cursor: pointer; }
+.add-button { background-color: #007bff; color: white; text-decoration: none; padding: 8px 15px; border-radius: 4px; }
+.add-button:hover { background-color: #0056b3; }
+
+
+.form-group { display: flex; align-items: center; margin-bottom: 15px; }
+.form-group label { width: 150px; font-weight: 500; color: #333; }
+.form-group input[type="text"],
+.form-group input[type="email"] { flex-grow: 1; padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
+
+.radio-group { display: flex; align-items: center; flex-grow: 1; }
+.radio-group input[type="radio"] { margin-right: 5px; }
+.radio-group label { width: auto; margin-right: 20px; font-weight: normal; }
+
+.form-actions { display: flex; justify-content: center; margin-top: 30px; }
+.btn { padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; margin: 0 10px; }
+.btn-back { background-color: #6c757d; color: white; }
+.btn-register { background-color: #007bff; color: white; }
